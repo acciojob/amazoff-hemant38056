@@ -35,6 +35,10 @@ public class OrderRepository {
                 pairPartnerToOrder.put(partnerId, new ArrayList<>());
             }
             pairPartnerToOrder.get(partnerId).add(orderId);
+            DeliveryPartner temp = partnerMap.get(partnerId);
+            int num = temp.getNumberOfOrders();
+            num++;
+            temp.setNumberOfOrders(num);
             pairOrderToPartner.put(orderId, partnerId);
         }
     }
@@ -181,6 +185,10 @@ public class OrderRepository {
 
         if(!partnerId.equals("-1")){
             pairPartnerToOrder.get(partnerId).remove(orderId);
+            DeliveryPartner dtemp = partnerMap.get(partnerId);
+            int num = dtemp.getNumberOfOrders();
+            num--;
+            dtemp.setNumberOfOrders(num);
         }
 
 
