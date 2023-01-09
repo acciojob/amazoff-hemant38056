@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController {
 
     @Autowired
-    OrderService orderService;
+    OrderService orderService = new OrderService();
 
 
 //    1. Add Order
